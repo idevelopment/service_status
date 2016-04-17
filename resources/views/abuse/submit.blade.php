@@ -8,10 +8,14 @@
          We at iDevelopment have a zero tolerance for any kind of hacking/spam/DDos attacks from our network.<br />
          This form is to report behavior which, directly or indirectly, may disrupt the Internet experience of other users. We act on it if necessary.<br />
         </div>
-        <form class="form-horizontal">
+<div id='progress'><div id='progress-complete'></div></div>
+        <form action="{{ url('abuse/register') }}" method="post" id="AbuseForm" class="form-horizontal">
             <div class="panel panel-default">
                 <div class="panel-heading">Report Abuse</div>
                 <div class="panel-body">
+
+                <fieldset>
+                <legend>Personal information</legend>
                  <div class="form-group">
                   <label for="name" class="col-md-3 control-label">Full name <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
@@ -70,7 +74,10 @@
                    </select>
                  </div>
                 </div> 
+                </fieldset>
 
+                <fieldset>
+                <legend>Abuse information</legend>
                  <div class="form-group">
                   <label for="type" class="col-md-3 control-label">Type <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
@@ -81,16 +88,12 @@
                     </select>
                  </div>
                 </div>             
-              </div>
-            </div>
-
-            <div style="display:none;" id="spam" class="panel panel-default">
-             <div class="panel-heading">Spam</div>
-             <div class="panel-body">
+             
+            <div style="display:none;" id="spam">
                  <div class="form-group">
                   <label for="ip" class="col-md-3 control-label">Please enter the IP address from where the spam was sent  <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="ip" name="ip" class="form-control">
+                   <input type="text" id="ip" name="SpamSourceIP" class="form-control">
                  </div>
                 </div>
 
@@ -108,17 +111,14 @@
                  </div>
                 </div>
             </div>
-        </div>
 
-<div style="display:none;" id="hacking" class="panel panel-default">
- <div class="panel-heading">Hacking</div>
- <div class="panel-body">
-                 <div class="form-group">
-                  <label for="source_ip" class="col-md-3 control-label">Please enter the IP address from where the hack (attempt) occurred<strong class="text-danger">*</strong></label>
-                  <div class="col-md-6">
-                   <input type="text" id="source_ip" name="source_ip" class="form-control">
-                 </div>
-                </div>
+    <div style="display:none;" id="hacking">
+    <div class="form-group">
+   <label for="source_ip" class="col-md-3 control-label">Please enter the IP address from where the hack (attempt) occurred<strong class="text-danger">*</strong></label>
+ <div class="col-md-6">
+   <input type="ip" id="source_ip" name="source_ip" class="form-control">
+  </div>
+ </div>
 
 <div class="form-group">
  <label for="source_port" class="col-md-3 control-label">Source port fo the hack (attempt) <strong class="text-danger">*</strong></label>
@@ -144,15 +144,27 @@
   </div>
 
 </div>
-</div>
+</fieldset>
 
-            </div>            
-        </div>
-    </div>
+<input id="SaveAccount" type="submit" class="btn btn-primary" value="Submit" />
+
 </div>
+</div>            
+        
 </form>
 <script>
 $(document).ready(function(){
+    $("#AbuseForm").formToWizard({ 
+        submitButton: 'SaveAccount',
+        nextBtnClass: 'btn btn-primary',
+        prevBtnClass: 'btn btn-default',
+        buttonTag:    'button', 
+    progress: function (i, count) {
+      $('#progress-complete').width(''+(i/count*100)+'%');
+    }
+  });
+
+
     $('#type').on('change', function() {
       if ( this.value == 'spam')
       {
@@ -164,12 +176,6 @@ $(document).ready(function(){
           $("#spam").hide();
         $("#hacking").show();
       } 
-      else  if ( this.value == '3')
-      {
-          $("#spam").hide();
-        $("#hacking").show();
-      }
-
        else  
       {
         $("#spam").hide();
@@ -177,5 +183,6 @@ $(document).ready(function(){
       }
     });
 });
+
 </script>
 @endsection
