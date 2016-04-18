@@ -8,7 +8,8 @@ use App\Http\Requests;
 
 class AbuseController extends Controller
 {
-    public function publicRegister(){
+    public function publicRegister()
+    {
     	return view('abuse/submit');
     }
 }
