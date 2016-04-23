@@ -10,6 +10,7 @@
         </div>
 <div id='progress'><div id='progress-complete'></div></div>
         <form action="{{ url('abuse/register') }}" method="post" id="AbuseForm" class="form-horizontal">
+        {!! csrf_field() !!}
             <div class="panel panel-default">
                 <div class="panel-heading">Report Abuse</div>
                 <div class="panel-body">
@@ -17,9 +18,16 @@
                 <fieldset>
                 <legend>Personal information</legend>
                  <div class="form-group">
-                  <label for="name" class="col-md-3 control-label">Full name <strong class="text-danger">*</strong></label>
+                  <label for="first_name" class="col-md-3 control-label">First name <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="name" name="name" class="form-control">
+                   <input type="text" id="first_name" name="first_name" class="form-control">
+                 </div>
+                </div>
+
+                 <div class="form-group">
+                  <label for="last_name" class="col-md-3 control-label">Last name <strong class="text-danger">*</strong></label>
+                  <div class="col-md-6">
+                   <input type="text" id="last_name" name="last_name" class="form-control">
                  </div>
                 </div>
 
@@ -40,10 +48,23 @@
                  <div class="form-group">
                   <label for="phone" class="col-md-3 control-label">Phone <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="phone" id="phone" name="phone" class="form-control">
+                   <input type="text" id="phone" name="phone" class="form-control">
                  </div>
-                </div>                
+                </div>
 
+                <div class="form-group">
+                  <label for="mobile" class="col-md-3 control-label">Mobile</label>
+                  <div class="col-md-6">
+                   <input type="text" id="mobile" name="mobile" class="form-control">
+                 </div>
+                </div>
+
+                 <div class="form-group">
+                  <label for="postcode" class="col-md-3 control-label">Postcode <strong class="text-danger">*</strong></label>
+                  <div class="col-md-6">
+                   <input type="text" id="postcode" name="postcode" class="form-control">
+                 </div>
+                </div>
 
                  <div class="form-group">
                   <label for="address" class="col-md-3 control-label">Address <strong class="text-danger">*</strong></label>
@@ -81,7 +102,7 @@
                  <div class="form-group">
                   <label for="type" class="col-md-3 control-label">Type <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <select id='type' class="form-control">
+                   <select id='type' name="type" class="form-control">
                      <option value=""></option>
                      <option value="spam">Spam</option>
                      <option value="hacking">Hacking</option>

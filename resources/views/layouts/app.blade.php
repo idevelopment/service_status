@@ -19,7 +19,7 @@
         <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://raw.githubusercontent.com/artoodetoo/formToWizard/master/jquery.formtowizard.js"></script>
+    <script src="{{ asset('js/jquery.formtowizard.js') }}"></script>
 
     <style>
 body {font-family: 'Arimo', sans-serif; }
