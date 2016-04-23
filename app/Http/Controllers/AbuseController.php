@@ -109,12 +109,6 @@ class AbuseController extends Controller
     $ContactQuery = call("set_entry", $ContactParameters, $url);
     $CaseQuery = call("set_entry", $CaseParameters, $url);
     
-    echo "<h2>Contact query</h2>";
-    echo "<pre>". print_r($ContactQuery->id)."</pre>";
-    echo "<hr>";
-    echo "<h2>Case query</h2>";
-    echo "<pre>". print_r($CaseQuery->id)."</pre>";
-
     //relate Contact to Case 
     $relationshipCasetoContact = array(
         'session' => $session_id,
@@ -125,13 +119,12 @@ class AbuseController extends Controller
     );
     $relationshipResult = call('set_relationship', $relationshipCasetoContact, $url);
 
-
-    echo "<hr>";
-    echo "<h2>Contact Relationship</h2>";
-    echo "<pre>";
-    print_r($relationshipResult);
-    echo "</pre>";
-
-    
+    return redirect('abuse/confirmed');
   }
+
+      public function confirmAbuse()
+    {
+    	return view('abuse/confirmed');
+
+    }
 }
