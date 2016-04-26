@@ -91,7 +91,9 @@
                   <label for="country" class="col-md-3 control-label">Country <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
                    <select name="country" id="country" class="form-control">
-                       <option ></option>
+                       @foreach($countries as $data)
+                           <option value="{!! $data->country !!}"> {!! $data->country !!} </option>
+                       @endforeach
                    </select>
                  </div>
                 </div> 

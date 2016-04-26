@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\countries;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -10,7 +11,8 @@ class AbuseController extends Controller
 {
     public function publicRegister()
     {
-    	return view('abuse/submit');
+        $data['countries'] = countries::all();
+    	return view('abuse/submit', $data);
     }
 
     public function registerAbuse(Request $request)
