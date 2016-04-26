@@ -15,7 +15,7 @@ class AbuseController extends Controller
     	return view('abuse/submit', $data);
     }
 
-    public function registerAbuse(Request $request)
+    public function registerAbuse(Requests\AbuseValidator $request)
     {
 
     $url = config('suitecrm.url');
