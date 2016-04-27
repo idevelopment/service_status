@@ -13,7 +13,7 @@ class CountrySeeder extends Seeder {
     public function run()
     {
         Model::unguard();
-        DB::table('Countries')->insert([
+        DB::table('countries')->insert([
             // Countries that begin with A
             ['country' => 'Afghanistan'],
             ['country' => 'Albania'],
