@@ -24,3 +24,6 @@ Route::post('/abuse/register', 'AbuseController@registerAbuse');
 Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
 
 Route::get('/incidents', 'IncidentsController@index');
+Route::get('/incidents/create', 'IncidentsController@reportIncident');
+Route::get('/incidents/labels/delete/{id}', 'IncidentsController@deleteLabel');
+Route::get('/incidents/labels', 'IncidentsController@incidentLabels');

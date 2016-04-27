@@ -10,4 +10,14 @@ class Incidents extends Model
     {
         return $this->hasOne('App\User');
     }
+
+    public function labels()
+    {
+        //
+    }
+
+    public function services()
+    {
+        //
+    }
 }
