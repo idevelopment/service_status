@@ -4,10 +4,22 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-9 col-md-9 col-sm-9 col-lg-9">
-            <form style="padding-bottom: 15px" class="form-inline">
-                <input type="email" class="form-control" placeholder="Search term">
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                    <form style="padding-bottom: 15px" class="form-inline">
+                        <input type="email" class="form-control" placeholder="Search term">
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                </div>
+
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                    <div class="pull-right btn-group">
+                        <a href="" class="btn btn-default">Assignee</a>
+                        <a href="" class="btn btn-default">Labels</a>
+                    </div>
+                </div>
+
+            </div>
 
             <table class="table table-hover table-condensed">
                 <thead>
