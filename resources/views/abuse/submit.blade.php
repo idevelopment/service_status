@@ -20,70 +20,70 @@
                  <div class="form-group">
                   <label for="first_name" class="col-md-3 control-label">First name <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="first_name" name="first_name" class="form-control">
+                   <input type="text" id="first_name" name="first_name" placeholder="Firstname" class="form-control">
                  </div>
                 </div>
 
                  <div class="form-group">
                   <label for="last_name" class="col-md-3 control-label">Last name <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="last_name" name="last_name" class="form-control">
+                   <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Lastname">
                  </div>
                 </div>
 
                  <div class="form-group">
                   <label for="company" class="col-md-3 control-label">Company</label>
                   <div class="col-md-6">
-                   <input type="text" id="company" name="company" class="form-control">
+                   <input type="text" id="company" name="company" placeholder="Company" class="form-control">
                  </div>
                 </div>
 
                  <div class="form-group">
                   <label for="email" class="col-md-3 control-label">Email <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="email" id="email" name="email" class="form-control">
+                   <input type="email" id="email" name="email" placeholder="Email" class="form-control">
                  </div>
                 </div>
 
                  <div class="form-group">
                   <label for="phone" class="col-md-3 control-label">Phone <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="phone" name="phone" class="form-control">
+                   <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control">
                  </div>
                 </div>
 
                 <div class="form-group">
                   <label for="mobile" class="col-md-3 control-label">Mobile</label>
                   <div class="col-md-6">
-                   <input type="text" id="mobile" name="mobile" class="form-control">
+                   <input type="text" id="mobile" name="mobile" placeholder="Mobile" class="form-control">
                  </div>
                 </div>
 
                  <div class="form-group">
                   <label for="postcode" class="col-md-3 control-label">Postcode <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="postcode" name="postcode" class="form-control">
+                   <input type="text" id="postcode" name="postcode" placeholder="Postcode" class="form-control">
                  </div>
                 </div>
 
                  <div class="form-group">
                   <label for="address" class="col-md-3 control-label">Address <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="address" name="address" class="form-control">
+                   <input type="text" id="address" name="address" placeholder="Address" class="form-control">
                  </div>
                 </div>                
 
                  <div class="form-group">
                   <label for="city" class="col-md-3 control-label">City <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="city" name="city" class="form-control">
+                   <input type="text" id="city" name="city" placeholder="City" class="form-control">
                  </div>
                 </div>
 
                  <div class="form-group">
                   <label for="state" class="col-md-3 control-label">State / Province <strong class="text-danger">*</strong></label>
                   <div class="col-md-6">
-                   <input type="text" id="state" name="state" class="form-control">
+                   <input type="text" id="state" name="state" placeholder="State / Province" class="form-control">
                  </div>
                 </div>
 
