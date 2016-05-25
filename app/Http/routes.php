@@ -23,4 +23,10 @@ Route::get('/abuse', 'AbuseController@publicRegister');
 Route::post('/abuse/register', 'AbuseController@registerAbuse');
 Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
 
+Route::get('/profile/update', 'ProfileController@getAccountDetails');
+Route::post('/profile/update', 'ProfileController@updateAccountDetails');
+
 Route::get('/incidents', 'IncidentsController@index');
+Route::get('/incidents/create', 'IncidentsController@reportIncident');
+Route::get('/incidents/labels/delete/{id}', 'IncidentsController@deleteLabel');
+Route::get('/incidents/labels', 'IncidentsController@incidentLabels');
