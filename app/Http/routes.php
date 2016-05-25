@@ -19,6 +19,10 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+// profile routes/
+Route::get('/profile', 'ProfileController@profile');
+Route::post('/profile', 'ProfileController@edit');
+
 Route::get('/abuse', 'AbuseController@publicRegister');
 Route::post('/abuse/register', 'AbuseController@registerAbuse');
 Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
