@@ -14,7 +14,12 @@
 
                 <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
                     <div class="pull-right btn-group">
-                        <a href="" class="btn btn-default">Assignee</a>
+                        <a href="{!! route('incidents.open') !!}" class="btn btn-default">
+                            Open <span class="label label-danger">{!! $open !!}</span>
+                        </a>
+                        <a href="{!! route('incidents.closed') !!}" class="btn btn-default">
+                            Closed <span class="label label-success">{!! $closed !!}</span>
+                        </a>
                         <a href="" class="btn btn-default">Labels</a>
                     </div>
                 </div>
@@ -45,9 +50,9 @@
 
         <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
             <div class="list-group">
-                <a href="#" class="list-group-item disabled">All incidents</a>
-                <a href="#" class="list-group-item">Report incident</a>
-                <a href="#" class="list-group-item">Assigned to you</a>
+                <a href="#" class="list-group-item">All incidents</a>
+                <a href="{!! route('incidents.create') !!}" class="list-group-item">Report incident</a>
+                <a href="{!! route('incidents.you') !!}" class="list-group-item">Assigned to you</a>
             </div>
         </div>
     </div>
