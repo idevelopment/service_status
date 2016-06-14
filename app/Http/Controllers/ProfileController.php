@@ -42,14 +42,13 @@ class ProfileController extends Controller
     {
         $query = User::find(auth()->user()->id);
 
-        if (! empty($input->get('passwoord'))) {
+        if (! empty($input->get('password'))) {
             $query->update($input->except(['_token', 'password_confirmation']));
         } else {
             $query->update(['_token', 'password', 'password_confirmation']);
         }
 
         session()->flash('message', 'Profile updated');
-
-        return redirect()->back();
+        return redirect()->back(302);
     }
 }
