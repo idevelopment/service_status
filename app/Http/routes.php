@@ -18,6 +18,26 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+// profile routes/
+Route::get('/profile', 'ProfileController@profile');
+Route::post('/profile', 'ProfileController@edit');
+
 Route::get('/abuse', 'AbuseController@publicRegister');
 Route::post('/abuse/register', 'AbuseController@registerAbuse');
 Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
+
+Route::get('/incidents', 'IncidentsController@index');
+Route::get('/incidents/open', 'IncidentsController@openIssues')->name('incidents.open');
+Route::get('/incidents/closed', 'IncidentsController@closedIssues')->name('incidents.closed');
+Route::get('/incidents/create', 'IncidentsController@createIncident')->name('incidents.create');
+Route::get('/incidents/assigned/you', 'IncidentsController@assignedToYou')->name('incidents.you');
+Route::post('/incidents/store', 'incidentsController@storeIncident')->name('incidents.store');
+
+// Labels
+Route::get('/labels', 'LabelController@index')->name('label.index');
+Route::get('/labels/create', 'LabelController@create')->name('label.insert');
+Route::get('/labels/delete/{id}', 'LabelController@destroy')->name('label.destroy');
+Route::get('/labels/update/{id}', 'LabelController@edit')->name('label.edit');
+Route::post('/labels/update/{id}', 'LabelController@update')->name('label.update');
+Route::post('/labels/create', 'LabelController@store')->name('label.create');

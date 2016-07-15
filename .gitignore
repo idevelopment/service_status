@@ -1,4 +1,8 @@
+/offline-issues
 /bootstrap/compiled.php
 .env.*.php
 .env.php
+/Homestead.yaml
+/.vagrant
+/vendor
 .env
