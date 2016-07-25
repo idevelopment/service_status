@@ -81,9 +81,12 @@
                     <div role="tabpanel" class="tab-pane fade in" id="api">
                         {{-- Create new api key panel --}}
                         <div class="panel panel-default">
-                            <div class="panel-heading">API Settings</div>
+                            <div class="panel-heading">Create new api token</div>
                             <div class="panel-body">
-                                Coming soon.
+                                <form method="POST" action="" class="form-inline">
+                                    <input type="text" class="form-control" name="service" placeholder="Service name" />
+                                    <button class="btn btn-success" type="submit">Create</button>
+                                </form>
                             </div>
                         </div>
 
