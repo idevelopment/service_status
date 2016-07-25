@@ -78,7 +78,22 @@
                     </div>
 
                     {{-- API Tab --}}
-                    <div role="tabpanel" class="tab-pane fade in" id="api">Coming soon</div>
+                    <div role="tabpanel" class="tab-pane fade in" id="api">
+                        {{-- Create new api key panel --}}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">API Settings</div>
+                            <div class="panel-body">
+                                Coming soon.
+                            </div>
+                        </div>
+
+                        {{-- LIst services panel --}}
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                Coming soon
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
