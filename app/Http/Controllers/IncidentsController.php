@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Incidents;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -123,7 +124,8 @@ class IncidentsController extends Controller
      */
     public function createIncident()
     {
-        return view('incidents.create');
+        $data['users'] = User::all();
+        return view('incidents.create', $data);
     }
 
     /**

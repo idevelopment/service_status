@@ -15,7 +15,7 @@ class Incidents extends Model
      * 
      * @var array
      */
-    protected $fillable = ['title', 'message'];
+    protected $fillable = ['title', 'message', 'assigned'];
 
     /**
      * Assignee relation.

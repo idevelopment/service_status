@@ -22,6 +22,20 @@
                                 </div>
                             </div>
 
+                            {{-- Assigned users group --}}
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <select class="form-control" name="assigned">
+                                        <option value="">-- Assigned user --</option>
+
+                                        @foreach($users as $user)
+                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </div>
+
                             {{-- Message form group --}}
                             <div class="form-group">
                                 <div class="col-md-8">
