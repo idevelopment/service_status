@@ -26,4 +26,14 @@ class Incidents extends Model
     {
         return $this->hasOne('App\User');
     }
+
+    /**
+     * Incidents -> Status relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function issues()
+    {
+        return $this->belongsToMany('App\IncidentStatus');
+    }
 }

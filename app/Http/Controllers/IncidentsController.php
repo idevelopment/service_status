@@ -22,8 +22,8 @@ class IncidentsController extends Controller
      */
     public function __construct()
     {
-        $this->open   = Incidents::where('status', 0);
-        $this->closed = Incidents::where('status', 1);
+        $this->open   = Incidents::with('issues')->selectRaw('count(incident_status_incidents.id) as aggregate');;
+        $this->closed = Incidents::where('status', 1)->with('issues');
     }
 
     /**
@@ -35,7 +35,8 @@ class IncidentsController extends Controller
     {
         $data['open']   = $this->open->count();
         $data['closed'] = $this->closed->count();
-        $data['query']  = Incidents::paginate(20);
+        $data['query']  = Incidents::with('issues')->paginate(20);
+
         return view('incidents.index', $data);
     }
 
@@ -113,7 +114,7 @@ class IncidentsController extends Controller
      */
     public function showIncident($id)
     {
-        $data['query'] = Incidents::find($id);
+        $data['query'] = Incidents::with('issues')->find($id);
         return view('' , $data);
     }
 
@@ -136,7 +137,8 @@ class IncidentsController extends Controller
      */
     public function storeIncident(Requests\IncidentsValidator $input)
     {
-        Incidents::create($input->except('_token'));
+        $incident = Incidents::create($input->except('_token'))->id;
+        Incidents::find($incident)->issues()->attach(1);
         session()->flash('message', 'Incident is created.');
         return redirect()->back(302);
     }
