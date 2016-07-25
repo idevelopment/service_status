@@ -12,3 +12,4 @@
 [Service Status - 51] Add backup system.
 [Service Status - 52] Implement Laravel debugbar.
 [Service Status - 53] Set links to the incidents navbar section.
+[Service Status - 56] Remove node_modules and add it to .gitignore
