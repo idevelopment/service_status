@@ -1,0 +1,8 @@
+# Service Status Changelog 
+
+# Version 1.0.0
+
+[Service Status - 43] Add assigned system to incidents. 
+[Service Status - 44] Set status into incidents creation.
+[Service Status - 45] Add changelog through the project.
+[Service Status - 46] Create specific incident view.
