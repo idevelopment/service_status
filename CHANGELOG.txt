@@ -10,3 +10,4 @@
 [Service Status - 46] Create specific incident view.
 [Service Status - 51] Add backup system.
 [Service Status - 52] Implement Laravel debugbar.
+[Service Status - 53] Set links to the incidents navbar section.

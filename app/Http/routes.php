@@ -27,7 +27,7 @@ Route::get('/abuse', 'AbuseController@publicRegister');
 Route::post('/abuse/register', 'AbuseController@registerAbuse');
 Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
 
-Route::get('/incidents', 'IncidentsController@index');
+Route::get('/incidents', 'IncidentsController@index')->name('incidents.index');
 Route::get('/incidents/open', 'IncidentsController@openIssues')->name('incidents.open');
 Route::get('/incidets/show/{id}', 'IncidentsController@showIncident')->name('incidents.show');
 Route::get('/incidents/closed', 'IncidentsController@closedIssues')->name('incidents.closed');

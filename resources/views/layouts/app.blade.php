@@ -121,9 +121,8 @@ text-align:left;
                     <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Incidents <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                       <li><a href="#">Report incident</a></li>
-                       <li><a href="#">Search incident</a></li>
-                       <li><a href="#">All incidents</a></li>
+                       <li><a href="{{ route('incidents.create') }}">Report incident</a></li>
+                       <li><a href="{{ route('incidents.index') }}">All incidents</a></li>
                        <li role="separator" class="divider"></li>
                        <li><a href="#">Server management</a></li>
                        <li><a href="#">Service management</a></li>
