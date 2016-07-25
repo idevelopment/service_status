@@ -24,31 +24,47 @@ class ProfileController extends Controller
     /**
      * Get the edit view for the user.
      *
+     * @url    /profile
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function profile()
     {
-        $data['query'] = User::find(auth()->user()->id);
+        $data['userId'] = auth()->user()->id;
+        $data['query']  = User::find($data['userId']);
+
         return view('profile.index', $data);
     }
 
     /**
-     * Update the profile data.
+     * Change the account information.
      *
-     * @param  Requests\ProfileValidator $input
+     * @url    POST: /profile/update/information
+     * @param  Requests\AccountInfoValidator $input
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function edit(Requests\ProfileValidator $input)
+    public function PostAccountInfo(Requests\AccountInfoValidator $input)
     {
-        $query = User::find(auth()->user()->id);
+        $userId = auth()->user()->id;
+        User::find($userId)->update($input->except('_token'));
 
-        if (! empty($input->get('password'))) {
-            $query->update($input->except(['_token', 'password_confirmation']));
-        } else {
-            $query->update(['_token', 'password', 'password_confirmation']);
-        }
+        session()->flash('message', 'Account information has been updated');
+        return redirect()->back(302);
+    }
 
-        session()->flash('message', 'Profile updated');
+    /**
+     * Change the account password.
+     *
+     * @url    POST: /profile/update/security
+     * @param  Requests\PasswordValidator $input
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function PostAccountCredentials(Requests\PasswordValidator $input)
+    {
+        $pass   = bcrypt($input->password);
+        $userId = auth()->user()->id;
+
+        User::find($userId)->update($input->except($pass));
+        session()->flash('message', 'Password credentials has been updated');
         return redirect()->back(302);
     }
 }

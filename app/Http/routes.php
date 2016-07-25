@@ -20,8 +20,9 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 // profile routes/
-Route::get('/profile', 'ProfileController@profile');
-Route::post('/profile', 'ProfileController@edit');
+Route::get('/profile', 'ProfileController@profile')->name('profile.view');
+Route::post('/profile/update/information', 'ProfileController@PostAccountInfo')->name('profile.update.information');
+Route::post('/profile/update/security', 'ProfileController@PostAccountCredentials')->name('profile.update.security');
 
 Route::get('/abuse', 'AbuseController@publicRegister');
 Route::post('/abuse/register', 'AbuseController@registerAbuse');

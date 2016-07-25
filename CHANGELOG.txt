@@ -3,6 +3,7 @@
 # Version 1.0.0
 
 [Service Status - 40] Implement codecov.
+[Service Status - 41] Create change user credentials store method.
 [Service Status - 42] Add .editorconfig.
 [Service Status - 43] Add assigned system to incidents. 
 [Service Status - 44] Set status into incidents creation.
