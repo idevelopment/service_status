@@ -32,6 +32,7 @@
                         <th>#</th>
                         <th>Status:</th>
                         <th>Title:</th>
+                        <th></th> {{-- Actions --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +45,11 @@
                                 @endforeach
                             </td>
                             <td><a href=""> {!! $data->title !!} </a> </td>
+                            <td>
+                                <a href="{{ route('incidents.show', ['id' => $data->id]) }}">
+                                    <span class="label label-success">Show</span>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

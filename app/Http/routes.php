@@ -29,6 +29,7 @@ Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
 
 Route::get('/incidents', 'IncidentsController@index');
 Route::get('/incidents/open', 'IncidentsController@openIssues')->name('incidents.open');
+Route::get('/incidets/show/{id}', 'IncidentsController@showIncident')->name('incidents.show');
 Route::get('/incidents/closed', 'IncidentsController@closedIssues')->name('incidents.closed');
 Route::get('/incidents/create', 'IncidentsController@createIncident')->name('incidents.create');
 Route::get('/incidents/assigned/you', 'IncidentsController@assignedToYou')->name('incidents.you');

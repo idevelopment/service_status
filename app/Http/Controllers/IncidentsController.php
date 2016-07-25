@@ -110,12 +110,14 @@ class IncidentsController extends Controller
 
     /**
      * Show a specific incident
+     *
+     * @param  int $id The issue id in the database.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showIncident($id)
     {
-        $data['query'] = Incidents::with('issues')->find($id);
-        return view('' , $data);
+        $data['incident'] = Incidents::with('issues')->find($id);
+        return view('incidents.show' , $data);
     }
 
     /**
