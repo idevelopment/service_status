@@ -18,3 +18,4 @@
 [Service Status - 61] Add labels factory.
 [Service Status - 62] Build up the label migration.
 [Service Status - 63] Build up label validator.
+[Service Status - 65] Add mass-assign and hidden to the label model.

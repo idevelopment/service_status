@@ -61,8 +61,10 @@ class LabelsTest extends TestCase
         $this->actingAs($user);
         $this->seeIsAuthenticatedAs($user);
 
-        // Delete test cannot create.
-        // Cause: Missing factory
+        $this->seeInDatabase('labels', ['id' => $label->id]);
+        $this->visit(route('label.destroy', ['id' => $label->id]));
+        $this->dontSeeInDatabase('labels', ['id' => $label->id]);
+        $this->seeStatusCode(200);
     }
 
     /**
@@ -94,14 +96,49 @@ class LabelsTest extends TestCase
      */
     public function testUpdatePost()
     {
+        $this->withoutMiddleware();
         $user  = factory(App\User::class)->create();
         $label = factory(App\Label::class)->create();
 
         $this->actingAs($user);
         $this->seeIsAuthenticatedAs($user);
 
-        // Update test cannot create.
-        // Cause: Missing factory
+        // Input
+        $input['name']        = 'Label name';
+        $input['color']       = '#ff0000';
+        $input['description'] = 'This is a description';
+
+        // DB checksums.
+        $oldDb = [
+            'name'        => $label->name,
+            'color'       => $label->color,
+            'description' => $label->description
+        ];
+
+        $newDb = [
+            'id'          => $label->id,
+            'name'        => $input['name'],
+            'color'       => $input['color'],
+            'description' => $input['description']
+        ];
+
+        // Authenticate user.
+        $this->actingAs($user);
+        $this->seeIsAuthenticatedAs($user);
+
+        // with validation errors.
+        $this->seeInDatabase('labels', $oldDb);
+        $this->post(route('label.update', ['id' => $label->id], []));
+        $this->seeStatusCode(302);
+        $this->assertHasOldInput();
+
+        // Without validation errors.
+        $this->seeInDatabase('labels', $oldDb);
+        $this->post(route('label.update', ['id' => $label->id], $input));
+        // $this->dontSeeInDatabase('labels', $oldDb);
+        // $this->seeInDatabase('labels', $newDb);
+        $this->seeStatusCode(302);
+
     }
 
     /**
@@ -114,5 +151,13 @@ class LabelsTest extends TestCase
     public function testCreatePost()
     {
         $user = factory(App\User::class)->create();
+
+        // Authenticate user.
+        $this->actingAs($user);
+        $this->seeIsAuthenticatedAs($user);
+
+        // with validation errors.
+
+        // Without validation errors.
     }
 }

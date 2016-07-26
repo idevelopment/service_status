@@ -11,12 +11,14 @@
 |
 */
 
+// TODO: testing
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::auth();
 
+// TODO: testing
 Route::get('/home', 'HomeController@index');
 
 // profile routes/
@@ -24,10 +26,12 @@ Route::get('/profile', 'ProfileController@profile')->name('profile.view');
 Route::post('/profile/update/information', 'ProfileController@PostAccountInfo')->name('profile.update.information');
 Route::post('/profile/update/security', 'ProfileController@PostAccountCredentials')->name('profile.update.security');
 
+// TODO: Testing
 Route::get('/abuse', 'AbuseController@publicRegister');
 Route::post('/abuse/register', 'AbuseController@registerAbuse');
 Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
 
+// TODO: Testing
 Route::get('/incidents', 'IncidentsController@index')->name('incidents.index');
 Route::get('/incidents/open', 'IncidentsController@openIssues')->name('incidents.open');
 Route::get('/incidets/show/{id}', 'IncidentsController@showIncident')->name('incidents.show');
@@ -37,6 +41,7 @@ Route::get('/incidents/assigned/you', 'IncidentsController@assignedToYou')->name
 Route::post('/incidents/store', 'incidentsController@storeIncident')->name('incidents.store');
 
 // Labels
+// TODO: Testing <- in progress
 Route::get('/labels', 'LabelController@index')->name('label.index');
 Route::get('/labels/create', 'LabelController@create')->name('label.insert');
 Route::get('/labels/delete/{id}', 'LabelController@destroy')->name('label.destroy');
