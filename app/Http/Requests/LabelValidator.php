@@ -13,7 +13,7 @@ class LabelValidator extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class LabelValidator extends Request
     public function rules()
     {
         return [
-            //
+            'color'       => 'required',
+            'name'        => 'required',
+            'description' => 'required',
         ];
     }
 }
