@@ -15,61 +15,13 @@
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://timelined.andriaus.lt/css/timeline.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
         <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/jquery.formtowizard.js') }}"></script>
 
-    <style>
-body {font-family: 'Arimo', sans-serif; }
-
-        .full-width {
-            max-width:1200px;
-            margin:0 auto;
-            background-color:#CFCFC4;
-            border-left:1px solid #85857e;
-            border-right:1px solid #85857e;
-            border-top:1px solid #85857e;
-        }
-
-
-        h1, {
-            padding:20px;
-        }
-        h1 {
-            font-size:200%;
-            color:#c23b22;  
-        }
-        h2 {
-            padding:12px;
-            font-size: 20px;
-        }
-        p { padding-left:10px;}
-        .center {
-            text-align: center;
-        }
-
-.fa-btn {margin-right: 6px; }
-.form-horizontal .control-label{
-text-align:left;
-}
-
-#progress { position: relative; height: 5px; background-color: #eee; margin-bottom: 20px; }
-#progress-complete { border: 0; position: absolute; height: 5px; min-width: 10px; background-color: green; transition: width .2s ease-in-out; }
-
- .prev { float:left;}
- .next { float:right;}
- #steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
- #steps li {font-size:24px; float:left; padding:10px; color:#b0b1b3;}
- #steps li span {font-size:11px; display:block;}
- #steps li.current { color:#000;}
-
- .clickable{
-    cursor: pointer;   
-}
-       
-    </style>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">

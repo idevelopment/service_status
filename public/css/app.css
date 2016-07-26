@@ -1,10 +1,5 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import '_modules/_variables';
-
-
 body {
-  font-family: 'Arimo', sans-serif;
-}
+  font-family: 'Arimo', sans-serif; }
 
 .full-width {
   max-width: 1200px;
@@ -12,45 +7,36 @@ body {
   background-color: #CFCFC4;
   border-left: 1px solid #85857e;
   border-right: 1px solid #85857e;
-  border-top: 1px solid #85857e;
-}
+  border-top: 1px solid #85857e; }
 
-h1, {
-  padding: 20px;
-}
+h1 {
+  padding: 20px; }
 
 h1 {
   font-size: 200%;
-  color: #c23b22;
-}
+  color: #c23b22; }
 
 h2 {
   padding: 12px;
-  font-size: 20px;
-}
+  font-size: 20px; }
 
 p {
-  padding-left: 10px;
-}
+  padding-left: 10px; }
 
 .center {
-  text-align: center;
-}
+  text-align: center; }
 
 .fa-btn {
-  margin-right: 6px;
-}
+  margin-right: 6px; }
 
 .form-horizontal .control-label {
-  text-align: left;
-}
+  text-align: left; }
 
 #progress {
   position: relative;
   height: 5px;
   background-color: #eee;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 #progress-complete {
   border: 0;
@@ -58,41 +44,35 @@ p {
   height: 5px;
   min-width: 10px;
   background-color: green;
-  transition: width .2s ease-in-out;
-}
+  transition: width .2s ease-in-out; }
 
 .prev {
-  float: left;
-}
+  float: left; }
 
 .next {
-  float: right;
-}
+  float: right; }
 
 #steps {
   list-style: none;
   width: 100%;
   overflow: hidden;
   margin: 0px;
-  padding: 0px;
-}
+  padding: 0px; }
 
 #steps li {
   font-size: 24px;
   float: left;
   padding: 10px;
-  color: #b0b1b3;
-}
+  color: #b0b1b3; }
 
 #steps li span {
   font-size: 11px;
-  display: block;
-}
+  display: block; }
 
 #steps li.current {
-  color: #000;
-}
+  color: #000; }
 
 .clickable {
-  cursor: pointer;
-}
+  cursor: pointer; }
+
+/*# sourceMappingURL=app.css.map */
