@@ -14,12 +14,11 @@
 // TODO: testing
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('app');
+
+Route::get('/home', 'HomeController@index')->name('app.home');
 
 Route::auth();
-
-// TODO: testing
-Route::get('/home', 'HomeController@index');
 
 // profile routes/
 Route::get('/profile', 'ProfileController@profile')->name('profile.view');
