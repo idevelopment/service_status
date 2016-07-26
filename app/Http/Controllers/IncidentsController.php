@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Incidents;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -21,8 +22,8 @@ class IncidentsController extends Controller
      */
     public function __construct()
     {
-        $this->open   = Incidents::where('status', 0);
-        $this->closed = Incidents::where('status', 1);
+        $this->open   = Incidents::with('issues')->selectRaw('count(incident_status_incidents.id) as aggregate');;
+        $this->closed = Incidents::where('status', 1)->with('issues');
     }
 
     /**
@@ -34,7 +35,8 @@ class IncidentsController extends Controller
     {
         $data['open']   = $this->open->count();
         $data['closed'] = $this->closed->count();
-        $data['query']  = Incidents::paginate(20);
+        $data['query']  = Incidents::with('issues')->paginate(20);
+
         return view('incidents.index', $data);
     }
 
@@ -108,12 +110,14 @@ class IncidentsController extends Controller
 
     /**
      * Show a specific incident
+     *
+     * @param  int $id The issue id in the database.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showIncident($id)
     {
-        $data['query'] = Incidents::find($id);
-        return view('' , $data);
+        $data['incident'] = Incidents::with('issues')->find($id);
+        return view('incidents.show' , $data);
     }
 
     /**
@@ -123,7 +127,8 @@ class IncidentsController extends Controller
      */
     public function createIncident()
     {
-        return view('incidents.create');
+        $data['users'] = User::all();
+        return view('incidents.create', $data);
     }
 
     /**
@@ -134,7 +139,8 @@ class IncidentsController extends Controller
      */
     public function storeIncident(Requests\IncidentsValidator $input)
     {
-        Incidents::create($input->except('_token'));
+        $incident = Incidents::create($input->except('_token'))->id;
+        Incidents::find($incident)->issues()->attach(1);
         session()->flash('message', 'Incident is created.');
         return redirect()->back(302);
     }

@@ -23,3 +23,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\countries::class, function (Faker\Generator $faker) {
     return [ 'country' => $faker->country ];
 });
+
+$factory->define(App\Label::class, function (Faker\Generator $faker) {
+    return [
+        'name'        => $faker->name,
+        'color'       => $faker->hexColor,
+        'description' => $faker->text(200)
+    ];
+});

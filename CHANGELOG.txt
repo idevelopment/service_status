@@ -1,0 +1,21 @@
+# Service Status Changelog 
+
+# Version 1.0.0
+
+[Service Status - 40] Implement codecov.
+[Service Status - 41] Create change user credentials store method.
+[Service Status - 42] Add .editorconfig.
+[Service Status - 43] Add assigned system to incidents. 
+[Service Status - 44] Set status into incidents creation.
+[Service Status - 45] Add changelog through the project.
+[Service Status - 46] Create specific incident view.
+[Service Status - 51] Add backup system.
+[Service Status - 52] Implement Laravel debugbar.
+[Service Status - 53] Set links to the incidents navbar section.
+[Service Status - 54] Change css in layout blade to external file.
+[Service Status - 56] Remove node_modules and add it to .gitignore.
+[Service Status - 58] Implement css-linting.
+[Service Status - 61] Add labels factory.
+[Service Status - 62] Build up the label migration.
+[Service Status - 63] Build up label validator.
+[Service Status - 65] Add mass-assign and hidden to the label model.

@@ -32,14 +32,24 @@
                         <th>#</th>
                         <th>Status:</th>
                         <th>Title:</th>
+                        <th></th> {{-- Actions --}}
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($query as $data)
                         <tr>
                             <td> <code> #{!! $data->id !!} </code> </td>
-                            <td> {!! $data->status !!} </td>
+                            <td>
+                                @foreach($data->issues as $issue)
+                                    <span class="label label-info">{{ $issue->name }}</span>
+                                @endforeach
+                            </td>
                             <td><a href=""> {!! $data->title !!} </a> </td>
+                            <td>
+                                <a href="{{ route('incidents.show', ['id' => $data->id]) }}">
+                                    <span class="label label-success">Show</span>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -15,7 +15,7 @@ class Incidents extends Model
      * 
      * @var array
      */
-    protected $fillable = ['title', 'message'];
+    protected $fillable = ['title', 'message', 'assigned'];
 
     /**
      * Assignee relation.
@@ -25,5 +25,15 @@ class Incidents extends Model
     public function assignee()
     {
         return $this->hasOne('App\User');
+    }
+
+    /**
+     * Incidents -> Status relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function issues()
+    {
+        return $this->belongsToMany('App\IncidentStatus');
     }
 }

@@ -2,6 +2,7 @@
 /bootstrap/compiled.php
 .env.*.php
 .env.php
+/node_modules
 /Homestead.yaml
 /.vagrant
 /vendor

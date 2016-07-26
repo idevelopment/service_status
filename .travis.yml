@@ -6,6 +6,10 @@ php:
     - 7.0
     - hhvm
 
+before_install:
+    - gem install sass
+
+
 before_script:
     - touch database/database.sqlite
     - travis_retry composer self-update
@@ -13,3 +17,10 @@ before_script:
     - pip install --user codecov
     - php artisan migrate --database=sqlite --force
     - php artisan key:generate
+
+script:
+    - "tests/travis/scss.rb"
+    - vendor/bin/phpunit --coverage-clover=coverage.xml
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)

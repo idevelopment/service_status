@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class LabelValidator extends Request
+class AccountInfoValidator extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class LabelValidator extends Request
     public function rules()
     {
         return [
-            'color'       => 'required',
-            'name'        => 'required',
-            'description' => 'required',
+            'name'  => 'required',
+            'email' => 'required',
         ];
     }
 }
