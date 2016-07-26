@@ -3,6 +3,9 @@
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+/**
+ * Class VariousTest
+ */
 class VariousTest extends TestCase
 {
     // DatabaseMigrations   = Trait for running database migrations.

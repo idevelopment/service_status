@@ -26,11 +26,6 @@ Route::post('/profile/update/information', 'ProfileController@PostAccountInfo')-
 Route::post('/profile/update/security', 'ProfileController@PostAccountCredentials')->name('profile.update.security');
 
 // TODO: Testing
-Route::get('/abuse', 'AbuseController@publicRegister');
-Route::post('/abuse/register', 'AbuseController@registerAbuse');
-Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
-
-// TODO: Testing
 Route::get('/incidents', 'IncidentsController@index')->name('incidents.index');
 Route::get('/incidents/open', 'IncidentsController@openIssues')->name('incidents.open');
 Route::get('/incidets/show/{id}', 'IncidentsController@showIncident')->name('incidents.show');
@@ -38,6 +33,11 @@ Route::get('/incidents/closed', 'IncidentsController@closedIssues')->name('incid
 Route::get('/incidents/create', 'IncidentsController@createIncident')->name('incidents.create');
 Route::get('/incidents/assigned/you', 'IncidentsController@assignedToYou')->name('incidents.you');
 Route::post('/incidents/store', 'incidentsController@storeIncident')->name('incidents.store');
+
+// TODO: Testing
+Route::get('/abuse', 'AbuseController@publicRegister');
+Route::post('/abuse/register', 'AbuseController@registerAbuse');
+Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
 
 // Labels
 // TODO: Testing <- in progress
