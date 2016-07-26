@@ -1,5 +1,5 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import '_modules/_variables';
+@import '_modules/variables';
 
 
 body {
@@ -7,26 +7,23 @@ body {
 }
 
 .full-width {
-  max-width: 1200px;
+  background-color: $light-gray;
+  border-left: 1px solid $gray;
+  border-right: 1px solid $gray;
+  border-top: 1px solid $gray;
   margin: 0 auto;
-  background-color: #CFCFC4;
-  border-left: 1px solid #85857e;
-  border-right: 1px solid #85857e;
-  border-top: 1px solid #85857e;
-}
-
-h1, {
-  padding: 20px;
+  max-width: 1200px;
 }
 
 h1 {
+  color: $red;
   font-size: 200%;
-  color: #c23b22;
+  padding: 20px;
 }
 
 h2 {
-  padding: 12px;
   font-size: 20px;
+  padding: 12px;
 }
 
 p {
@@ -46,18 +43,18 @@ p {
 }
 
 #progress {
-  position: relative;
+  background-color: $white-gray;
   height: 5px;
-  background-color: #eee;
   margin-bottom: 20px;
+  position: relative;
 }
 
 #progress-complete {
+  background-color: $green;
   border: 0;
-  position: absolute;
   height: 5px;
   min-width: 10px;
-  background-color: green;
+  position: absolute;
   transition: width .2s ease-in-out;
 }
 
@@ -71,26 +68,29 @@ p {
 
 #steps {
   list-style: none;
-  width: 100%;
+  margin: 0;
   overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-}
+  padding: 0;
+  width: 100%;
 
-#steps li {
-  font-size: 24px;
-  float: left;
-  padding: 10px;
-  color: #b0b1b3;
-}
+  // #steps li
+  li {
+    color: $gray-light;
+    float: left;
+    font-size: 24px;
+    padding: 10px;
 
-#steps li span {
-  font-size: 11px;
-  display: block;
-}
+    // #steps li.current
+    &.current {
+      color: $black;
+    }
 
-#steps li.current {
-  color: #000;
+    // #steps li span
+    span {
+      display: block;
+      font-size: 11px;
+    }
+  }
 }
 
 .clickable {
