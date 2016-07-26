@@ -15,3 +15,4 @@
 [Service Status - 54] Change css in layout blade to external file.
 [Service Status - 56] Remove node_modules and add it to .gitignore.
 [Service Status - 58] Implement css-linting.
+[Service Status - 62] Build up the label migration.
