@@ -16,3 +16,4 @@
 [Service Status - 56] Remove node_modules and add it to .gitignore.
 [Service Status - 58] Implement css-linting.
 [Service Status - 62] Build up the label migration.
+[Service Status - 64] Add labels factory.
