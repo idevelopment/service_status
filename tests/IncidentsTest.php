@@ -33,7 +33,15 @@ class IncidentsTest extends TestCase
      */
     public function testIncidentsOpen()
     {
-        //
+        $user = factory(App\User::class)->create();
+        
+        // Authenticate user.
+        $this->actingAs($user);
+        $this->seeIsAuthenticatedAs($user)
+        
+        // Testing the route
+        $this->visit(route('incidents.open'))
+        $this->seeStatusCode(200);
     }
 
     /**
