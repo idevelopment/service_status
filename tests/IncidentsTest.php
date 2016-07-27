@@ -137,8 +137,11 @@ class IncidentsTest extends TestCase
         $incident = factory(App\Incidents::class)->create();
 
         // Input
+        $input[''] = '';
 
         // DB checksums.
+        $oldDb = [];
+        $newDb = [];
 
         // Authenticate user.
         $this->actingAs($user);
