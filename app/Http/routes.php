@@ -28,7 +28,7 @@ Route::post('/profile/update/security', 'ProfileController@PostAccountCredential
 // TODO: Testing
 Route::get('/incidents', 'IncidentsController@index')->name('incidents.index');
 Route::get('/incidents/open', 'IncidentsController@openIssues')->name('incidents.open');
-Route::get('/incidets/show/{id}', 'IncidentsController@showIncident')->name('incidents.show');
+Route::get('/incidents/show/{id}', 'IncidentsController@showIncident')->name('incidents.show');
 Route::get('/incidents/closed', 'IncidentsController@closedIssues')->name('incidents.closed');
 Route::get('/incidents/create', 'IncidentsController@createIncident')->name('incidents.create');
 Route::get('/incidents/assigned/you', 'IncidentsController@assignedToYou')->name('incidents.you');

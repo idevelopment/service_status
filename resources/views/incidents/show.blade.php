@@ -4,24 +4,53 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-9">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <code> #{{ $incident->id }} </code>
-                    <strong>{{ $incident->title }}</strong>
+        {{-- Tab panels --}}
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#info" aria-controls="info" role="tab" data-toggle="tab">
+                        <span class="fa fa-info-circle"></span> Info
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">
+                        <span class="fa fa-commenting"></span> Comments
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {{--  End tab panels --}}
 
-                    <div class="pull-right">
-                        <a href="" class="label label-warning">Edit incident</a>
-                        <a href="" class="label label-danger">Close incident</a>
+        {{-- Tab content --}}
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active fade in" id="info">
+                <div style="margin-top: 10px;" class="col-md-9">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <code> #{{ $incident->id }} </code>
+                            <strong>{{ $incident->title }}</strong>
+
+                            <div class="pull-right">
+                                <a href="" class="label label-warning">Edit incident</a>
+                                <a href="" class="label label-danger">Close incident</a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            {{ $incident->message }}
+                        </div>
                     </div>
                 </div>
-                <div class="panel-body">
-                    {{ $incident->message }}
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade in" id="comments">
+                <div style="margin-top: 10px;" class="col-md-9">
+                    TODO: Comments section.
                 </div>
             </div>
         </div>
+        {{-- END tab content --}}
 
-        <div class="col-md-3">
+        <div style="margin-top: 10px;" class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Incident Information</div>
 
