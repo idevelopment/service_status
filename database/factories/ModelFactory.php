@@ -31,3 +31,13 @@ $factory->define(App\Label::class, function (Faker\Generator $faker) {
         'description' => $faker->text(200)
     ];
 });
+
+$factory->define(App\Incidents::class, function (Faker\Generator $faker) {
+    return [
+        'title'     => 'required',
+        'assigned'  => 1,
+        'status'    => 'open',
+        'message'   => 'message body',
+        'services'  => 1,
+    ];
+});

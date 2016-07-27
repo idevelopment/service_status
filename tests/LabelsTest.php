@@ -43,7 +43,7 @@ class LabelsTest extends TestCase
         $this->actingAs($user);
         $this->seeIsAuthenticatedAs($user);
         $this->visit(route('label.insert'));
-        $this->seeIsAuthenticatedAs(200);
+        $this->seeStatusCode(200);
     }
 
     /**

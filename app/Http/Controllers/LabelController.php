@@ -12,10 +12,7 @@ use App\Http\Requests;
  * @package App\Http\Controllers.
  *
  * TODO: Add phpunit tests.
- * TODO: Make model factory
- * TODO: Make migration.
  * TODO: Set translation
- *
  */
 class LabelController extends Controller
 {
