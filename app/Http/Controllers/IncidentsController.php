@@ -22,7 +22,7 @@ class IncidentsController extends Controller
      */
     public function __construct()
     {
-        $this->open   = Incidents::with('issues')->selectRaw('count(incident_status_incidents.id) as aggregate');;
+        $this->open   = Incidents::where('status', 0)->with('issues');
         $this->closed = Incidents::where('status', 1)->with('issues');
     }
 

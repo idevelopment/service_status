@@ -21,7 +21,15 @@ class IncidentsTest extends TestCase
      */
     public function testIndex()
     {
-        //
+        $user = factory(App\User::class)->create();
+
+        // Authenticate user
+        $this->actingAs($user);
+        $this->seeIsAuthenticatedAs($user);
+
+        // Test the route
+        $this->visit(route('incidents.index'));
+        $this->seeStatusCode(200);
     }
 
     /**
@@ -37,10 +45,10 @@ class IncidentsTest extends TestCase
         
         // Authenticate user.
         $this->actingAs($user);
-        $this->seeIsAuthenticatedAs($user)
+        $this->seeIsAuthenticatedAs($user);
         
         // Testing the route
-        $this->visit(route('incidents.open'))
+        $this->visit(route('incidents.open'));
         $this->seeStatusCode(200);
     }
 
@@ -65,7 +73,15 @@ class IncidentsTest extends TestCase
      */
     public function testIncidentsClosed()
     {
-        //
+        $user = factory(App\User::class)->create();
+
+        // Authenticate user
+        $this->actingAs($user);
+        $this->seeIsAuthenticatedAs($user);
+
+        // Test route
+        $this->visit(route('incidents.closed'));
+        $this->seeStatusCode(200);
     }
 
     /**
@@ -77,7 +93,15 @@ class IncidentsTest extends TestCase
      */
     public function testIncidentsCreateView()
     {
-        //
+        $user = factory(App\User::class)->create();
+
+        // Authenticate user.
+        $this->actingAs($user);
+        $this->seeIsAuthenticatedAs($user);
+
+        // Test the route
+        $this->visit(route('incidents.create'));
+        $this->seeStatusCode(200);
     }
 
     /**
@@ -89,7 +113,15 @@ class IncidentsTest extends TestCase
      */
     public function testIncidentsAssigned()
     {
-        //
+        $user = factory(App\User::class)->create();
+
+        // Authenticate user
+        $this->actingAs($user);
+        $this->seeIsAuthenticatedAs($user);
+
+        // test route.
+        $this->visit(route('incidents.you'));
+        $this->seeStatusCode(200);
     }
 
     /**
@@ -101,6 +133,22 @@ class IncidentsTest extends TestCase
      */
     public function testIncidentsCreatePost()
     {
-        //
+        $user     = factory(App\User::class)->create();
+        $incident = factory(App\Incidents::class)->create();
+
+        // Input
+
+        // DB checksums.
+
+        // Authenticate user.
+        $this->actingAs($user);
+        $this->seeIsAuthenticatedAs($user);
+
+        // With validation errors
+        $this->post(route('incidents.store'), []);
+        $this->seeStatusCode(302);
+        $this->assertHasOldInput();
+
+        // Without validation errors.
     }
 }
