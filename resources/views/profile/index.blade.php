@@ -34,7 +34,7 @@
                                 Profile information.
                             </div>
                             <div class="panel-body">
-                                <form action="{{ route('profile.update.information') }}" method="post" class="form-horizontal">
+                                <form action="{{ route('profile.update.information') }}" enctype="multipart/form-data" method="post" class="form-horizontal">
                                     {{ csrf_field() }}
 
                                     {{-- Name form-group --}}
@@ -54,6 +54,26 @@
                                         </label>
                                         <div class="col-md-6">
                                             <input type="text" id="email" name="email" value="{{ $query->email }}" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    {{-- Mobile phone number form-group --}}
+                                    <div class="form-group">
+                                        <label for="mobilePhone" class="col-md-3 control-label">
+                                            Mobile phone <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="mobilePhone" name="mobile_number" value="{{ $query->mobile_number }}" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    {{-- Office phone number form-group --}}
+                                    <div class="form-group">
+                                        <label for="officePhone" class="col-md-3 control-label">
+                                            Office phone <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="mobilePhone" name="office_phone" value="{{ $query->office_number }}" class="form-control">
                                         </div>
                                     </div>
 
