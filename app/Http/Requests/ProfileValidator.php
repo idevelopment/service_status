@@ -24,8 +24,10 @@ class ProfileValidator extends Request
     public function rules()
     {
         return [
-            'name'  => 'required',
-            'email' => 'required',
+            'name'         => 'required',
+            'email'        => 'required',
+            'mobile_phone' => 'required',
+            'office_phone' => 'required'
         ];
     }
 }
