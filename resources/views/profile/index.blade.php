@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- TODO: Implement flash message to the view --}}
+    {{-- TODO: Weave validation errors into the view.--}}
+
     <div class="container">
         <div class="row">
             <div class="col-sm-3">

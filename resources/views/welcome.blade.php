@@ -69,7 +69,8 @@
 </div>
 </div>
 
-    <script type="text/javascript">
+    <script type="text/javascript">$
+        // TODO: This local
         $(document).on('click', '.panel-heading span.clickable', function(e){
     var $this = $(this);
     if(!$this.hasClass('panel-collapsed')) {
