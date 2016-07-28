@@ -31,7 +31,7 @@ class Comments extends Model
      */
     public function incident()
     {
-        return $this->belongsToMany('App\Incidents')
+        return $this->belongsToMany('App\Incidents');
     }
 
     /**
