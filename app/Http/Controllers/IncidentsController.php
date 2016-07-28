@@ -152,16 +152,17 @@ class IncidentsController extends Controller
      * Store a new comment into the database.
      *
      * @url    POST; /incidents/comment/(id)
+     * @param  CommentValidator $comment
      * @param  int $id the id from the database.
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function createComment($id)
+    public function createComment(CommentValidator $comment, $id)
     {
         // Save the comment
-        Comments::create();
+        $comment = Comments::create($input->except('_token'))->id;
 
-        // store injection in the database methods.
-        $incident = Incidents::find($id); // Get the incident identified by his id.
+        $incident = Incidents::find($id);
+        $incident->comments()->attach($comment);
 
         session()->flash('message', 'Your comment has been added.');
         return redirect()->back();
