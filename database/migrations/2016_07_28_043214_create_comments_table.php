@@ -18,6 +18,15 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->timestamps();
         });
+
+        Schema::create('comments_incidents', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('comments_id')->unsigned()->index();
+            $table->foreign('comments_id')->references('id')->on('comments')->onDelete('cascade');
+            $table->integer('incidents_id')->unsigned()->index();
+            $table->foreign('incidents_id')->references('id')->on('incidents')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,5 +37,6 @@ class CreateCommentsTable extends Migration
     public function down()
     {
         Schema::drop('comments');
+        Schema::drop('comments_incidents');
     }
 }
