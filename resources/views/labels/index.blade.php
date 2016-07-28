@@ -25,13 +25,15 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <fiv class="form-group">
+                                    <div class="form-group">
                                         <label class="col-md-3 control-label">&nbsp;</label>
                                         <div class="col-md-8">
                                             <button type="submit" class="btn btn-sm btn-primary">Search</button>
-                                            <button type="button" class="btn btn-sm btn-default">New label</button>
+                                            <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal">
+                                                New label
+                                            </button>
                                         </div>
-                                    </fiv>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -86,5 +88,24 @@
     </div>
 
     {{-- Label insert modal --}}
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            {{-- Modal content --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     {{-- END label insert view --}}
 @endsection
