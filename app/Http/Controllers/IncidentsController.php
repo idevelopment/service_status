@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
 use App\Incidents;
 use App\User;
 use Illuminate\Http\Request;
@@ -116,7 +117,9 @@ class IncidentsController extends Controller
      */
     public function showIncident($id)
     {
-        $data['incident'] = Incidents::with('issues')->find($id);
+        $db['relations']  = ['issues', 'comments'];
+        $data['incident'] = Incidents::with($db['relations'])->find($id);
+
         return view('incidents.show' , $data);
     }
 
@@ -144,4 +147,24 @@ class IncidentsController extends Controller
         session()->flash('message', 'Incident is created.');
         return redirect()->back(302);
     }
+
+    /**
+     * Store a new comment into the database.
+     *
+     * @url    POST; /incidents/comment/(id)
+     * @param  int $id the id from the database.
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function createComment($id)
+    {
+        // Save the comment
+        Comments::create();
+
+        // store injection in the database methods.
+        $incident = Incidents::find($id); // Get the incident identified by his id.
+
+        session()->flash('message', 'Your comment has been added.');
+        return redirect()->back();
+    }
+
 }
