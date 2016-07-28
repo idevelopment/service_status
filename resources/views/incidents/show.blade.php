@@ -44,13 +44,31 @@
 
             <div role="tabpanel" class="tab-pane fade in" id="comments">
                 <div style="margin-top: 10px;" class="col-md-9">
-                    @if(count($incident->comments) === 0)
+                    @if(count($comments) === 0)
                         <div class="alert alert-danger">
                             <p>
                                 There are no comments on this incident ticket.
                                 You can <a href="#" data-toggle="modal" data-target="#myModal">create</a> one.
                             </p>
                         </div>
+                    @else
+                        @foreach($comments as $comment)
+                            <div class="well well-sm">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img style="width: 64px; height: 64px;" class="img-rounded media-object" src="..." alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Media head</h4>
+                                        {{ $comment->comment }}
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                        {{ $comments->render() }}
                     @endif
                 </div>
             </div>

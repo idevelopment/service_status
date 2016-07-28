@@ -117,8 +117,11 @@ class IncidentsController extends Controller
      */
     public function showIncident($id)
     {
-        $db['relations']  = ['issues', 'comments'];
-        $data['incident'] = Incidents::with($db['relations'])->find($id);
+        // ->with() will eager-load all the relations. Try $incident = Incident::find($id);
+        // $page = $incident->relation()->paginate(...)
+
+        $data['incident'] = Incidents::find($id);
+        $data['comments'] = $data['incident']->comments()->paginate();
 
         return view('incidents.show' , $data);
     }
