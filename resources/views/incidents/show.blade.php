@@ -112,12 +112,15 @@
                         <h4 class="modal-title" id="myModalLabel">Add a new comment</h4>
                     </div>
                     <div class="modal-body">
-                        <form action=""method="POST">
+                        <form action="{{ route('comment', ['id' => $incident->id]) }}" method="POST">
+                            {{-- CSRF token --}}
+                            {{ csrf_field() }}
+
                             <textarea name="comment" rows="10" class="form-control" placeholder="Comment message"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Comment</button>
                         </form>
                     </div>
                 </div>

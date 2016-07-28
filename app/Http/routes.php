@@ -39,6 +39,8 @@ Route::get('/abuse', 'AbuseController@publicRegister');
 Route::post('/abuse/register', 'AbuseController@registerAbuse');
 Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
 
+Route::post('/comment/{id}', 'IncidentsController@createComment')->name('comment');
+
 // Labels
 // TODO: Testing <- in progress
 Route::get('/labels', 'LabelController@index')->name('label.index');
