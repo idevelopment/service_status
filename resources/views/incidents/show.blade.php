@@ -44,7 +44,14 @@
 
             <div role="tabpanel" class="tab-pane fade in" id="comments">
                 <div style="margin-top: 10px;" class="col-md-9">
-                    TODO: Comments section.
+                    @if(count($incident->comments) === 0)
+                        <div class="alert alert-danger">
+                            <p>
+                                There are no comments on this incident ticket.
+                                You can <a href="">create</a> one.
+                            </p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -92,4 +99,7 @@
 
     </div>
 </div>
+
+    {{-- Add comment modal --}}
+    {{-- end comment modal --}}
 @endsection
