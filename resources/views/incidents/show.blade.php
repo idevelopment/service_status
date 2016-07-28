@@ -48,7 +48,7 @@
                         <div class="alert alert-danger">
                             <p>
                                 There are no comments on this incident ticket.
-                                You can <a href="">create</a> one.
+                                You can <a href="#" data-toggle="modal" data-target="#myModal">create</a> one.
                             </p>
                         </div>
                     @endif
@@ -101,5 +101,28 @@
 </div>
 
     {{-- Add comment modal --}}
+    @if(count($incident->comments) === 0)
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Add a new comment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action=""method="POST">
+                            <textarea name="comment" rows="10" class="form-control" placeholder="Comment message"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     {{-- end comment modal --}}
 @endsection
