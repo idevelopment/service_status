@@ -67,4 +67,34 @@ class ProfileController extends Controller
         session()->flash('message', 'Password credentials has been updated');
         return redirect()->back(302);
     }
+
+    /**
+     * Create a  api key for the account.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function createKey()
+    {
+        return redirect()->back();
+    }
+
+    /**
+     * Remove a api ey out off the system.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function removeKey()
+    {
+        return redirect()->back();
+    }
+
+    /**
+     * Show the log table for a specific api key.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function apiLog()
+    {
+        return view('', $data);
+    }
 }
