@@ -39,7 +39,14 @@ Route::get('/abuse', 'AbuseController@publicRegister');
 Route::post('/abuse/register', 'AbuseController@registerAbuse');
 Route::get('/abuse/confirmed', 'AbuseController@confirmAbuse');
 
+// Comment routes.
 Route::post('/comment/{id}', 'IncidentsController@createComment')->name('comment');
+
+// API Web view routes.
+// TODO: Testing
+Route::get('/api/log/{keyId}', 'ProfileController@apiLog')->name('key.logs');
+Route::get('/api/delete/{keyId}', 'ProfileController@removeKey')->name('key.destroy');
+Route::post('/api/key/new', 'ProfileController@createKey')->name('key.new');
 
 // Labels
 // TODO: Testing <- in progress

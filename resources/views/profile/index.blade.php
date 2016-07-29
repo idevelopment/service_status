@@ -128,7 +128,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Create new api token</div>
                             <div class="panel-body">
-                                <form method="POST" action="" class="form-inline">
+                                <form method="POST" action="{{ route('key.new') }}" class="form-inline">
                                     {{-- CSRF token --}}
                                     {{ csrf_field() }}
 
@@ -139,11 +139,44 @@
                         </div>
 
                         {{-- LIst services panel --}}
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                Coming soon
+                        @if(count($keys) === 0)
+                            <div class="alert alert-danger">
+                                You don't have any registered services for the API.
                             </div>
-                        </div>
+                        @else
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Service(s):</div>
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th> Service: </th>
+                                        <th> API key: </th>
+                                        <th></th> {{-- Functions --}}
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($keys as $key)
+                                        <tr>
+                                            <td>{{ $key->service }}</td>
+                                            <td><code>{{ $key->key }}</code></td>
+                                            <td>
+                                                <a href="#" style="margin-right: 3px" class="label label-info">
+                                                    Info
+                                                </a>
+                                                <a style="margin-right: 3px;" href="{!! route('key.logs', ['keyId' => $key->id]) !!}" class="label label-info">
+                                                    Logs
+                                                </a>
+                                                <a href="{!! route('key.destroy', ['keyId' => $key->id]) !!}" class="label label-danger">
+                                                    Remove
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                     </div>
 
                     {{-- Security tab --}}
