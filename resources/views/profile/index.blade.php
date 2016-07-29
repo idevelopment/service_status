@@ -6,6 +6,17 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                @if (Session::has('message'))
+                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        {{ Session::get('message') }}
+                    </div>
+                @endif
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-sm-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">Settings</div>
