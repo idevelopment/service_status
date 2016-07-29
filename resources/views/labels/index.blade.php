@@ -67,8 +67,8 @@
 
                                             {{-- Function bar --}}
                                             <td>
-                                                <a class="label label-primary" href="{{ route('') }}">Edit</a>
-                                                <a class="label label-primary" href="{{ route('') }}">Delete</a>
+                                                <a class="label label-primary" href="{{-- route('') --}}">Edit</a>
+                                                <a class="label label-primary" href="{{-- route('') --}}">Delete</a>
                                             </td>
                                             {{-- End function bar --}}
                                         </tr>
@@ -95,13 +95,38 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
+                    <h4 class="modal-title">Add a new label.</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Some text in the modal.</p>
+                    <form action="{{ route('label.create') }}" method="POST" class="form-horizontal">
+                        {{-- CSRF token --}}
+                        {{ csrf_field() }}
+
+                        <div class="form-group">
+                            <label for="term" class="col-md-3 control-label">Name:</label>
+                            <div class="col-md-8">
+                                <input type="text" id="term" name="name" class="form-control" placeholder="label name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="term" class="col-md-3 control-label">Color:</label>
+                            <div class="col-md-8">
+                                <input type="text" id="term" name="color" class="form-control" placeholder="BV. #ff0000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="term" class="col-md-3 control-label">Description:</label>
+                            <div class="col-md-8">
+                                <textarea name="description" placeholder="Description" class="form-control" id="" rows="10" cols="30"></textarea>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Insert</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </form>
                 </div>
             </div>
 
