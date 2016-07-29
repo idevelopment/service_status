@@ -36,6 +36,18 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <select name="services" class="form-control">
+                                        <option value="">-- Select your service --</option>
+
+                                        @foreach($services as $service)
+                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             {{-- Message form group --}}
                             <div class="form-group">
                                 <div class="col-md-8">

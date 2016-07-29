@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comments;
 use App\Incidents;
+use App\Service;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -133,7 +134,9 @@ class IncidentsController extends Controller
      */
     public function createIncident()
     {
-        $data['users'] = User::all();
+        $data['users']    = User::all();
+        $data['services'] = Service::all();
+
         return view('incidents.create', $data);
     }
 
@@ -169,6 +172,7 @@ class IncidentsController extends Controller
 
         $incident = Incidents::find($id);
         $incident->comments()->attach($comment);
+        $incident->services()->attach($input->services);
 
         session()->flash('message', 'Your comment has been added.');
         return redirect()->back();
