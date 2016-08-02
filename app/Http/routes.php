@@ -18,7 +18,11 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('app.home');
 
-Route::auth();
+// Auth routes.
+Route::get('login', 'Auth\AuthController@showLoginForm');
+Route::get('logout', 'Auth\AuthController@logout');
+Route::post('login', 'Auth\AuthController@login');
+//Route::auth();
 
 // profile routes/
 Route::get('/profile', 'ProfileController@profile')->name('profile.view');
