@@ -4,7 +4,10 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ProfileValidator extends Request
+/**
+ * @property mixed service
+ */
+class ApiKeyValidator extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +26,6 @@ class ProfileValidator extends Request
      */
     public function rules()
     {
-        return [
-            'name'         => 'required',
-            'email'        => 'required',
-            'mobile_phone' => 'required',
-            'office_phone' => 'required'
-        ];
+        return ['service' => 'required'];
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
 use App\Incidents;
+use App\Service;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,7 @@ class IncidentsController extends Controller
      */
     public function __construct()
     {
-        $this->open   = Incidents::with('issues')->selectRaw('count(incident_status_incidents.id) as aggregate');;
+        $this->open   = Incidents::where('status', 0)->with('issues');
         $this->closed = Incidents::where('status', 1)->with('issues');
     }
 
@@ -116,7 +118,12 @@ class IncidentsController extends Controller
      */
     public function showIncident($id)
     {
-        $data['incident'] = Incidents::with('issues')->find($id);
+        // ->with() will eager-load all the relations. Try $incident = Incident::find($id);
+        // $page = $incident->relation()->paginate(...)
+
+        $data['incident'] = Incidents::find($id);
+        $data['comments'] = $data['incident']->comments()->paginate();
+
         return view('incidents.show' , $data);
     }
 
@@ -127,7 +134,9 @@ class IncidentsController extends Controller
      */
     public function createIncident()
     {
-        $data['users'] = User::all();
+        $data['users']    = User::all();
+        $data['services'] = Service::all();
+
         return view('incidents.create', $data);
     }
 
@@ -144,4 +153,29 @@ class IncidentsController extends Controller
         session()->flash('message', 'Incident is created.');
         return redirect()->back(302);
     }
+
+    /**
+     * Store a new comment into the database.
+     *
+     * @url    POST; /incidents/comment/(id)
+     * @param  Requests\CommentValidator $input
+     * @param  int $id the id from the database.
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function createComment(Requests\CommentValidator $input, $id)
+    {
+        // Save the comment
+        $comment = Comments::create([
+            'comment' => $input->comment,
+            'user_id' => auth()->user()->id
+        ])->id;
+
+        $incident = Incidents::find($id);
+        $incident->comments()->attach($comment);
+        $incident->services()->attach($input->services);
+
+        session()->flash('message', 'Your comment has been added.');
+        return redirect()->back();
+    }
+
 }

@@ -36,4 +36,24 @@ class Incidents extends Model
     {
         return $this->belongsToMany('App\IncidentStatus');
     }
+
+    /**
+     * Incident -> Service relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function services()
+    {
+        return $this->belongsToMany('App\Service');
+    }
+
+    /**
+     * Incident -> Comment relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function comments()
+    {
+        return $this->belongsToMany('App\Comments');
+    }
 }
